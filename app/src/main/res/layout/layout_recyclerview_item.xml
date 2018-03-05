@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="handler"
+            type="com.example.shalini.assignment.ListHandler"></variable>
+        <variable
+            name="repo"
+            type="com.example.shalini.assignment.data.models.Repos"></variable>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            card_view:cardCornerRadius="10dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="true"
+            android:clickable="true"
+            android:onClick="@{(v) -> handler.onClickRepo(v,repo)}">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:scaleType="centerCrop"
+                    app:imageUrl="@{repo.owner.avatarUrl}"/>
+
+                <TextView
+                    android:id="@+id/textViewName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:text="Name:"
+                    android:textSize="@dimen/textview_text_size"/>
+
+                <TextView
+                    android:id="@+id/textViewNameValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/textViewName"
+                    android:text="@{repo.name}"
+                    android:textSize="@dimen/textview_text_size"/>
+
+                <TextView
+                    android:id="@+id/textViewFullName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewName"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:text="Full Name:"
+                    android:textSize="@dimen/textview_text_size"/>
+
+                <TextView
+                    android:id="@+id/textViewFullNameValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewName"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/textViewFullName"
+                    android:text="@{repo.fullName}"
+                    android:textSize="@dimen/textview_text_size"/>
+
+                <TextView
+                    android:id="@+id/textViewWatchersCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewFullName"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:text="Watchers Count : "
+                    android:textSize="@dimen/textview_text_size"/>
+
+                <TextView
+                    android:id="@+id/textViewWatchersCountValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewFullName"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/textViewWatchersCount"
+                    android:text="@{repo.watchersCount}"
+                    android:textSize="@dimen/textview_text_size"/>
+
+                <TextView
+                    android:id="@+id/textViewCommitCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewWatchersCount"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:text="Commit Count:"
+                    android:textSize="@dimen/textview_text_size"/>
+
+                <TextView
+                    android:id="@+id/textViewCommitCountValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewWatchersCount"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/textViewCommitCount"
+                    android:text="TextView"
+                    android:textSize="@dimen/textview_text_size"/>
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+</layout>
